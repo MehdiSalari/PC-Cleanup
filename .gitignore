@@ -1,0 +1,15 @@
+# Compiled output
+/build/*.exe
+/build/*.pdb
+/build/*.config
+/bin/
+/obj/
+
+# IDE and user-specific files
+/.vs/
+*.user
+*.suo
+
+# Runtime logs
+/logs/
+/scripts/cleanup-*.log
