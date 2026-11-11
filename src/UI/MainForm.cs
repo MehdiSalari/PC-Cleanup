@@ -236,7 +236,6 @@ namespace PcCleanupApp
 
             adminBtn = MakeBtn("RESTART AS ADMIN", 36, Color.FromArgb(60, 90, 140), Color.FromArgb(75, 110, 165), true);
             adminBtn.Click += delegate { RestartAsAdmin(); };
-            btns.Controls.Add(adminBtn);
 
             rescanBtn = MakeBtn("RESCAN CLEANUP TARGETS", 36, C_FIELD, Color.FromArgb(60, 60, 76), true);
             rescanBtn.Click += delegate { ScanStart(); };
@@ -409,6 +408,24 @@ namespace PcCleanupApp
                     row++;
                 }
                 gb.Controls.Add(tl);
+                if (g == "win" && !isAdmin)
+                {
+                    Panel adminHeader = new Panel();
+                    adminHeader.Dock = DockStyle.Top;
+                    adminHeader.Height = 38;
+                    adminHeader.BackColor = C_PANEL;
+                    adminBtn.Dock = DockStyle.None;
+                    adminBtn.Size = new Size(176, 30);
+                    adminBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+                    adminBtn.Location = new Point(Math.Max(0, adminHeader.ClientSize.Width - adminBtn.Width - 8), 3);
+                    adminBtn.BringToFront();
+                    adminHeader.Controls.Add(adminBtn);
+                    adminHeader.SizeChanged += delegate
+                    {
+                        adminBtn.Location = new Point(Math.Max(0, adminHeader.ClientSize.Width - adminBtn.Width - 8), 3);
+                    };
+                    gb.Controls.Add(adminHeader);
+                }
                 groupsPanel.Controls.Add(gb);
                 gb.SendToBack();
                 gboxes[g] = gb;
