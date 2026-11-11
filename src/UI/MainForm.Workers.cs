@@ -254,7 +254,10 @@ namespace PcCleanupApp
                 string amount = s.Dry ? FileSystemService.FmtBytes(s.TotalFreed) : FileSystemService.FmtBytes(Math.Max(0, s.Actual));
                 freedLabel.Text = (s.Dry ? "ESTIMATED RECOVERY: " : "SPACE RECLAIMED: ") + amount;
                 currentLabel.Text = s.Cancelled ? "OPERATION STOPPED" : "OPERATION COMPLETE";
-                AppendLog(s.Cancelled ? "Cleanup was cancelled by the user." : "Cleanup completed successfully.", s.Cancelled ? LogKind.Warning : LogKind.Success);
+                string completion = s.Cancelled
+                    ? "Operation was cancelled by the user."
+                    : (s.Dry ? "Preview completed successfully. No files were deleted." : "Live cleanup completed successfully.");
+                AppendLog(completion, s.Cancelled ? LogKind.Warning : LogKind.Success);
                 AppendLog("Free space on C: " + FileSystemService.FmtBytes(s.FreeAfter), LogKind.Info);
                 if (logFile != null) AppendLog("Log file: " + logFile, LogKind.Dim);
             }

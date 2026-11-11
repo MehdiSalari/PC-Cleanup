@@ -249,6 +249,12 @@ namespace PcCleanupApp
             startBtn = MakeBtn("START CLEANUP", 48, C_GREENBTN, Color.FromArgb(38, 180, 125), true);
             startBtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             startBtn.Click += delegate { StartRun(); };
+            startBtn.Text = dryCheck.Checked ? "START PREVIEW" : "START CLEANUP";
+            dryCheck.CheckedChanged += delegate
+            {
+                if (!runWorker.IsBusy)
+                    startBtn.Text = dryCheck.Checked ? "START PREVIEW" : "START CLEANUP";
+            };
             btns.Controls.Add(startBtn);
 
             groupsPanel = new Panel();
