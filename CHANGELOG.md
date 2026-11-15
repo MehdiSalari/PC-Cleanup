@@ -2,6 +2,22 @@
 
 All notable changes to PC Cleanup are documented here.
 
+## [1.2.0] - 2026-11-14
+
+### Changed
+
+- Redesign the whole interface: sidebar with an animated drive gauge, settings and actions; collapsible category cards with per-target size meters; animated activity panel.
+- Replace default WinForms controls with custom-painted, DPI-aware ones (buttons, toggle switches, checkboxes, stepper, progress bar with shimmer).
+- Dark title bar and dark scrollbars on Windows 10/11, dark tooltips and mouse-wheel scrolling anywhere over the target list.
+- Show categories in their natural order (Temporary Files first, Windows System last).
+- Build now compiles every file under `src` (`/recurse`).
+
+### Added
+
+- Recommended / Select all / Clear selection shortcuts.
+- Drive gauge shows how much of the used space the current selection can recover.
+- **Open activity log** is now enabled and opens the logs folder when no log exists yet.
+
 ## [1.1.0] - 2026-11-11
 
 ### Added

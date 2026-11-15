@@ -2,7 +2,7 @@
 
 **A lightweight Windows utility to review and safely clean temporary files and regenerable caches.**
 
-![Version](https://img.shields.io/badge/version-1.1.0-2563eb)
+![Version](https://img.shields.io/badge/version-1.2.0-2563eb)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078D4)
 ![License](https://img.shields.io/badge/license-not--specified-lightgrey)
 
@@ -86,11 +86,11 @@ PC-Cleanup/
 │   ├── Generate-Icon.ps1     # Regenerates the ICO file
 │   └── Invoke-PC-Cleanup.ps1 # Standalone PowerShell cleanup script
 ├── src/
-│   ├── Controls/             # Reusable WinForms controls
+│   ├── Controls/             # Custom-painted controls (buttons, toggles, cards, gauge)
 │   ├── Models/               # Cleanup operation and result models
 │   ├── Properties/           # Assembly metadata and version
 │   ├── Services/             # Filesystem and Recycle Bin services
-│   ├── UI/                   # Main window and background workers
+│   ├── UI/                   # Main window, theme, icons and background workers
 │   └── Program.cs            # Application entry point
 ├── .gitignore
 ├── CHANGELOG.md
